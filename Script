@@ -13,7 +13,7 @@ pipeline {
                           if(gender == 'male'){
                              echo "mr. $name"
                            } else {
-                              echo "Mrs. $params.GENDER"
+                              echo "Mrs. $params.NAME"
                           }                 
                      }
                  }
