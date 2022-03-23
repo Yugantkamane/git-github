@@ -1,0 +1,22 @@
+pipeline{
+  agent any
+  parameters{
+       string(name: 'NAME', description: 'please tell me ur name')
+       text(name: 'desc', description: 'describe your job role')
+       booleanParam(name: 'skip_test', description: 'want to skip running test case?')
+       choice(name: 'BRANCH',choices: ['master', 'dev'], description: 'choose barnch')
+       password(name: 'SONAR_SERVER_PWD', description: 'enter sonar password')
+  }
+   stages{
+        stage('printing name')
+            {
+              steps{
+                  echo "hello ${params.NAME}"
+                  echo "job details ${params.desc}"
+                  echo "skip the test case? ${params.skip_test}"
+                  echo "branch choice: ${params.BRANCH}"
+                  echo "SONAR Password: ${params.SONAR_SERVER_PWD}"
+               }
+             }
+         } 
+}

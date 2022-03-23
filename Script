@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+    parameters{
+      string(name: 'NAME', description: 'tell me your name?')
+      choice(name: 'GENDER', choices: ['male', 'female'], description: 'choose the gender')
+        }
+          stages{
+            stage('printing name'){
+              steps{
+                    script{
+                         def name = '$params.NAME'
+                         def gender = 'params.GENDER'
+                          if(gender == 'male'){
+                             echo "mr. $name"
+                           } else {
+                              echo "Mrs. $params.NAME"
+                          }                 
+                     }
+                 }
+             }
+           }
+          }
