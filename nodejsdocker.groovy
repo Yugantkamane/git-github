@@ -15,7 +15,7 @@ job('NodeJS Docker example') {
     steps {
         dockerBuildAndPublish {
             repositoryName('yugant1/docker-nodejs-demo')
-            tag('${GIT_REVISION,length=9}')
+            tag('${BUILD_TIMESTAMP}-${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
             forceTag(false)
