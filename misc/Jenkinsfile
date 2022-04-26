@@ -17,7 +17,7 @@ node {
      }
    }
    stage('deploy') {
-     def myTestContainer = docker.image('31988cd')
+     def myTestContainer = docker.image('commit_id')
      myTestContainer.pull()
      myTestContainer.inside {
        sh 'npm install --only=dev'
