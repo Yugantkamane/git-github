@@ -17,7 +17,9 @@ node {
      }
    }
    stage('deploy')  {
-       sh 'docker run -p 3000:3000 -d --name my-nodejs-app yugant1/docker-nodejs-demo'
+       sh """
+       docker run -p 3000:3000 -d --name my-nodejs-app yugant1/docker-nodejs-demo
+       """
      
      }
    
