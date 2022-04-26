@@ -16,12 +16,9 @@ node {
        def app = docker.build("yugant1/docker-nodejs-demo:${commit_id}", '.').push()
      }
    }
-   stage('deploy') {
-     def myTestContainer = docker.image('commit_id')
-     myTestContainer.pull()
-     myTestContainer.inside {
-       sh 'npm install --only=dev'
+   stage('deploy')  {
+       sh 'docker run -p 3000:3000 -d --name my-nodejs-app yugant1/docker-nodejs-demo'
      
      }
-   }
+   
 }
